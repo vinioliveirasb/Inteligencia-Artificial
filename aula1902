@@ -1,0 +1,35 @@
+# 🤖 Introdução à Inteligência Artificial
+
+Na introdução à disciplina de **Inteligência Artificial**, alguns conceitos fundamentais foram destacados antes de entrar nos **métodos de busca**.
+
+---
+
+## 🔹 IA Eficiente como Diferencial
+
+Uma tendência importante é desenvolver **ferramentas de IA acopladas a softwares** que:
+
+- Consumam **menos energia**
+- Utilizem **menos tokens/processamento**
+- Sejam mais **eficientes computacionalmente**
+
+📌 Eficiência é um diferencial competitivo.  
+Quanto menor o custo computacional, melhor o desempenho e menor o gasto.
+
+---
+
+## 🔹 Processador e Memória na IA
+
+Na Inteligência Artificial:
+
+- 🧠 **Processador (CPU/GPU)** → responsável por realizar os cálculos e executar os algoritmos.
+- 💾 **Memória (RAM/VRAM)** → responsável por armazenar dados e informações temporárias durante o processamento.
+
+📌 Conclusão:
+- Um **processador mais rápido** executa algoritmos com maior velocidade.
+- Uma **memória maior** permite trabalhar com mais dados e modelos maiores.
+- IA exige **bom poder de processamento + boa capacidade de armazenamento**.
+
+---
+
+Esses conceitos são base para entender os **métodos de busca**, que serão estudados em seguida.
+---
