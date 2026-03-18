@@ -16,24 +16,23 @@ public class MissionariosCanibais implements Estado {
         barco = b;
     }
 
-    // verifica se chegou no objetivo
-    @Override
+    // estado objetivo: todos atravessaram para a direita
     public boolean ehMeta() {
         return missionariosEsq == 0 && canibaisEsq == 0 && barco == 1;
     }
 
-    // gera os próximos estados possíveis
-    @Override
+    // gera as possíveis travessias do barco
     public List<Estado> sucessores() {
 
         List<Estado> suc = new ArrayList<>();
 
+        // combinações possíveis de pessoas no barco (máx 2)
         int[][] movimentos = {
-            {1,0}, // 1 missionário
-            {2,0}, // 2 missionários
-            {0,1}, // 1 canibal
-            {0,2}, // 2 canibais
-            {1,1}  // 1 missionário + 1 canibal
+            {1,0},
+            {2,0},
+            {0,1},
+            {0,2},
+            {1,1}
         };
 
         for (int[] mov : movimentos) {
@@ -43,13 +42,16 @@ public class MissionariosCanibais implements Estado {
 
             MissionariosCanibais novo;
 
-            if (barco == 0) { // barco na esquerda
+            // se o barco está na esquerda, pessoas atravessam para direita
+            if (barco == 0) {
                 novo = new MissionariosCanibais(
                         missionariosEsq - m,
                         canibaisEsq - c,
                         1
                 );
-            } else { // barco na direita
+            } 
+            // se está na direita, o barco volta
+            else {
                 novo = new MissionariosCanibais(
                         missionariosEsq + m,
                         canibaisEsq + c,
@@ -57,6 +59,7 @@ public class MissionariosCanibais implements Estado {
                 );
             }
 
+            // adiciona apenas estados válidos
             if (estadoValido(novo)) {
                 suc.add(novo);
             }
@@ -65,7 +68,7 @@ public class MissionariosCanibais implements Estado {
         return suc;
     }
 
-    // verifica se o estado é válido
+    // garante que os canibais nunca superem os missionários
     private boolean estadoValido(MissionariosCanibais e) {
 
         int mEsq = e.missionariosEsq;
@@ -86,19 +89,14 @@ public class MissionariosCanibais implements Estado {
         return true;
     }
 
-    // custo de cada ação
-    @Override
     public int custo() {
         return 1;
     }
 
-    // descrição do estado (necessário pro buscaJava)
-    @Override
     public String getDescricao() {
         return "(" + missionariosEsq + "M," + canibaisEsq + "C," + (barco == 0 ? "E" : "D") + ")";
     }
 
-    @Override
     public String toString() {
         return getDescricao();
     }
